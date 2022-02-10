@@ -29,16 +29,16 @@ GNMI_CERT_PASSWD="cisco123"
 pull_image=false # pull required image every time start
 
 # swtiches accept gNMI dial-in
-switches=( "172.25.74.70:50051" \
-           "172.25.74.61:50051" \
-           "172.25.74.87:50051" \
-           "172.25.74.88:50051" \
-           "172.25.74.163:50051" \
+switches=( "10.42.240.29:50051" \
+           "10.42.240.28:50051" \
+#           "172.25.74.87:50051" \
+#           "172.25.74.88:50051" \
+#           "172.25.74.163:50051" \
 )
 
 # user on swtich for authentication, need network-operator role at least
 gnmi_user="telemetry"
-gnmi_password="cisco123"
+gnmi_password="Cisco123"
 
 #For telegraf certificate
 country=US
