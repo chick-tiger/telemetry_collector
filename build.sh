@@ -31,9 +31,9 @@ pull_image=false # pull required image every time start
 # swtiches accept gNMI dial-in
 switches=( "10.42.240.29:50051" \
            "10.42.240.28:50051" \
-#           "172.25.74.87:50051" \
-#           "172.25.74.88:50051" \
-#           "172.25.74.163:50051" \
+           "10.42.240.32:50051" \
+           "10.42.240.33:50051" \
+           "10.42.240.34:50051" \
 )
 
 # user on swtich for authentication, need network-operator role at least
