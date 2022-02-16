@@ -5,7 +5,7 @@ networks:
 services:
   influxdb:
     image: ${INFLUXDB_IMAGE}
-    container_name: influxdb
+    container_name: influxdb1.7
     restart: always
     user: "${CURRENT_UID}:${CURRENT_GID}"
     ports:
