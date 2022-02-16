@@ -187,7 +187,7 @@ function prepare_telegraf() {
         IFS=':' read -a ip <<< "$sw"
         IPs+=(${ip[0]})
     done
-    url_list=`printf -- "\"%s\", " ${IPs[*]} | cut -d ", " -f 1-${#IPs[@]}`
+    url_list=`printf -- "\"%s\"," ${IPs[*]} | cut -d "," -f 1-${#IPs[@]}`
     urls="urls = [$url_list]"
 
 
