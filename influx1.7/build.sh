@@ -186,7 +186,7 @@ function check_influxdb () {
     # check if influxdb is ready for connection
     log "waiting for influxdb getting ready"
     while true; do
-        result=`curl -w %{http_code} --silent --output /dev/null localhost:8087/ping`
+        result=`curl -w %{http_code} --silent --output /dev/null localhost:9086/ping`
         if [ $result -eq 204 ]; then
             log "influxdb is online!"
             break
@@ -257,7 +257,7 @@ function start() {
     log "starting docker containers"
     docker-compose up -d
     check_influxdb
-    post_chronograf
+#    post_chronograf
 }
 
 function stop(){
