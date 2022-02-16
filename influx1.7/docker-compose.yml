@@ -12,8 +12,6 @@ services:
       - 8086:8087
     networks:
       - telemetry_collector_telemetry
-    env_file:
-      - "./influxdb.env"
     volumes:
       - ${INFLUX_CONFIG}:/etc/influxdb
       - ${INFLUX_DATA}:/var/lib/influxdb
