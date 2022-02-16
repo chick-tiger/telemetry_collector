@@ -1,0 +1,4 @@
+CREATE DATABASE librenms;
+CREATE RETENTION POLICY one_week ON librenms DURATION 1w REPLICATION 1 DEFAULT;
+CREATE USER librenms WITH PASSWORD 'librenms';
+GRANT ALL ON "librenms" TO "librenms";
