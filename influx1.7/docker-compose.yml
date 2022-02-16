@@ -9,7 +9,7 @@ services:
     restart: always
     user: "${CURRENT_UID}:${CURRENT_GID}"
     ports:
-      - 8086:8087
+      - 9086:8086
     networks:
       - telemetry_collector_telemetry
     volumes:
