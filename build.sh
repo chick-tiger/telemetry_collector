@@ -17,7 +17,6 @@ export INFLUXDB_PASSWD="cisco123"
 export INFLUXDB_ORG="Cisco"
 export INFLUXDB_BUCKET="nxos_gnmi"
 export INFLUXDB_MDT_BUCKET="nxos_dialout"
-export INFLUXDB_LIBRENMS_BUCKET="librenms"
 
 export GRAFANA_ADMIN_USER="grafana"
 export GRAFANA_ADMIN_PASSWD="cisco123"
@@ -293,11 +292,6 @@ function setup_influxdb() {
         # create second bucket for mdt dialout
         docker exec -t influxdb influx bucket create \
             -n $INFLUXDB_MDT_BUCKET \
-            -r 2h
-
-        # create third bucket for librenms
-        docker exec -t influxdb influx bucket create \
-            -n $INFLUXDB_LIBRENMS_BUCKET \
             -r 2h
     fi
 }
