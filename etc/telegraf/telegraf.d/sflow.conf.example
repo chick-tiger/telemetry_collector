@@ -16,3 +16,5 @@ files = ["/tmp/sflow.out"]
 rotation_max_archives = 3
 rotation_max_size = "100MB"
 data_format = "json"
+[outputs.file.tagpass]
+tag1 = ["sflow"]
