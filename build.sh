@@ -76,6 +76,7 @@ function clean() {
     rm -rf $TELEGRAF_CONFIG/gnmi_on_change.conf
     rm -rf $TELEGRAF_CONFIG/telegraf.conf
     rm -rf $TELEGRAF_CONFIG/telegraf.d/gnmi.conf
+    rm -rf $TELEGRAF_CONFIG/telegraf.d/gnmi.conf
 
     log "deleting grafana volume $CHRONOGRAF_VOLUME"
     docker volume rm $GRAFANA_VOLUME
