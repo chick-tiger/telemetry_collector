@@ -209,7 +209,7 @@ function prepare_telegraf() {
     fi
 
     # generate sflow plugin config file from example
-    if [ ! -e $TELEGRAF_CONFIG/telegraf.d/gnmi.conf ]; then
+    if [ ! -e $TELEGRAF_CONFIG/telegraf.d/sflow.conf ]; then
         sed -e "0,/^token\ =.*/s//token\ = \"$INFLUXDB_INIT_TOKEN\"/" \
             $TELEGRAF_CONFIG/telegraf.d/sflow.conf.example > $TELEGRAF_CONFIG/telegraf.d/sflow.conf
     fi
