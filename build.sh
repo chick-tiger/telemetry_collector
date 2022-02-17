@@ -72,11 +72,11 @@ function clean() {
     rm -rf $INFLUXDB_ENGINE
     rm -rf $INFLUXDB_CONFIG/influx-configs
 
-    log "remove generated gnmi config"
+    log "remove generated gnmi/sflow config"
     rm -rf $TELEGRAF_CONFIG/gnmi_on_change.conf
     rm -rf $TELEGRAF_CONFIG/telegraf.conf
     rm -rf $TELEGRAF_CONFIG/telegraf.d/gnmi.conf
-    rm -rf $TELEGRAF_CONFIG/telegraf.d/gnmi.conf
+    rm -rf $TELEGRAF_CONFIG/telegraf.d/sflow.conf
 
     log "deleting grafana volume $CHRONOGRAF_VOLUME"
     docker volume rm $GRAFANA_VOLUME
