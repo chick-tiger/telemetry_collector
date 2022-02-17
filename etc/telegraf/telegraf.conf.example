@@ -16,8 +16,8 @@ transport = "grpc"
 service_address = ":57000"
 
 # uncomment below to enable tls for dial-out plguin
-tls_cert = "/etc/telegraf/cert/telegraf.crt"
-tls_key = "/etc/telegraf/cert/telegraf.key"
+#tls_cert = "/etc/telegraf/cert/telegraf.crt"
+#tls_key = "/etc/telegraf/cert/telegraf.key"
 
 [inputs.cisco_telemetry_mdt.tags]
 tag1 = "nxos_dialout"

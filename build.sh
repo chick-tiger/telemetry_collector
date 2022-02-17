@@ -17,6 +17,7 @@ export INFLUXDB_PASSWD="cisco123"
 export INFLUXDB_ORG="Cisco"
 export INFLUXDB_BUCKET="nxos_gnmi"
 export INFLUXDB_MDT_BUCKET="nxos_dialout"
+export INFLUXDB_SFLOW_BUCKET="sflow_data"
 
 export GRAFANA_ADMIN_USER="grafana"
 export GRAFANA_ADMIN_PASSWD="cisco123"
@@ -207,6 +208,12 @@ function prepare_telegraf() {
             $TELEGRAF_CONFIG/telegraf.d/gnmi.conf.example > $TELEGRAF_CONFIG/telegraf.d/gnmi.conf
     fi
 
+    # generate sflow plugin config file from example
+    if [ ! -e $TELEGRAF_CONFIG/telegraf.d/gnmi.conf ]; then
+        sed -e "0,/^token\ =.*/s//token\ = \"$INFLUXDB_INIT_TOKEN\"/" \
+            $TELEGRAF_CONFIG/telegraf.d/sflow.conf.example > $TELEGRAF_CONFIG/telegraf.d/sflow.conf
+    fi
+
     if [ "$pull_image" = true ]; then
         log "pull the latest version of image $TELEGRAF_IMAGE"
         docker-compose pull telegraf
@@ -293,6 +300,9 @@ function setup_influxdb() {
         docker exec -t influxdb influx bucket create \
             -n $INFLUXDB_MDT_BUCKET \
             -r 2h
+
+        # apply sflow template
+        docker exec -t influxdb influx apply -f https://raw.githubusercontent.com/influxdata/community-templates/master/sflow/sflow.yml --force true
     fi
 }
 
