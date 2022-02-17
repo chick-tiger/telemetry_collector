@@ -1,15 +1,15 @@
 [[inputs.sflow]]
 service_address = "udp://:6343"
-#[inputs.sflow.tags]
-#tag1 = "sflow"
+[inputs.sflow.tags]
+tag1 = "sflow"
 
 [[outputs.influxdb_v2]]
 urls = ["http://influxdb:8086"]
 token = "telegraf"
 organization = "Cisco"
 bucket = "sflow_data"
-#[outputs.influxdb_v2.tagpass]
-#tag1 = ["sflow", "ping"]
+[outputs.influxdb_v2.tagpass]
+tag1 = ["sflow"]
 [[outputs.file]]
 ## Files to write to, "stdout" is a specially handled file.
 files = ["/tmp/sflow.out"]
