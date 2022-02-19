@@ -61,7 +61,7 @@ subscription_mode = "sample"
 sample_interval = "10s"
 
 
-### Cisco NX-OS Native YANG#### 
+### Cisco NX-OS Native YANG####
 [[inputs.cisco_telemetry_gnmi.subscription]]
 origin = "device"
 path = "/System/procsys-items/syscpusummary-items/syscpuhistory-items/SysCpuHistory-list/usageAvg"
@@ -231,6 +231,13 @@ sample_interval = "30s"
 origin = "device"
 path = "/System/bgp-items/inst-items/dom-items/Dom-list/af-items/DomAf-list"
 name = "native_bgp_address_family"
+subscription_mode = "sample"
+sample_interval = "30s"
+
+[[inputs.cisco_telemetry_gnmi.subscription]]
+origin = "device"
+path = "/System/icam-items/inst-items/aclresmod-items/AclResEntries-list/percent_util"
+name = "native_acl_tcam_util"
 subscription_mode = "sample"
 sample_interval = "30s"
 
